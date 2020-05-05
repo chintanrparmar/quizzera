@@ -68,7 +68,7 @@ class _QuizPageState extends State<QuizPage> {
               'Score: ${scoreCount.toString()} \n\n Alright Kid You\'re an Avenger Now';
         } else {
           textResult =
-          'Score: ${scoreCount.toString()} \n\n If You Step Up and Get 10, You\'re an Avenger!';
+              'Score: ${scoreCount.toString()} \n\n If You Step Up and Get 10, You\'re an Avenger!';
         }
 
         Navigator.pushNamed(
