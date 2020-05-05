@@ -62,10 +62,21 @@ class _QuizPageState extends State<QuizPage> {
       if (questionRepo.isFinished() == true) {
         print(scoreCount.toString());
 
+        String textResult = "";
+        if (scoreCount == 10) {
+          textResult =
+              'Score: ${scoreCount.toString()} \n\n Alright Kid You\'re an Avenger Now';
+        } else {
+          textResult =
+          'Score: ${scoreCount.toString()} \n\n If You Step Up and Get 10, You\'re an Avenger!';
+        }
+
         Navigator.pushNamed(
           context,
           QuizScore.routeName,
-          arguments: ScoreData(scoreCount),
+          arguments: ScoreData(
+            textResult,
+          ),
         );
 
         questionRepo.resetQuestion();
@@ -95,17 +106,15 @@ class _QuizPageState extends State<QuizPage> {
         Expanded(
           flex: 5,
           child: Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Center(
-              child: Text(
-                questionRepo.getQuestionText(),
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 28.0,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 2,
-                  color: Colors.white,
-                ),
+            padding: EdgeInsets.fromLTRB(10, 50, 10, 10),
+            child: Text(
+              questionRepo.getQuestionText(),
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 28.0,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 2,
+                color: Colors.white,
               ),
             ),
           ),
@@ -146,8 +155,11 @@ class _QuizPageState extends State<QuizPage> {
             ),
           ),
         ),
-        Row(
-          children: scoreKeeper,
+        SizedBox(
+          height: 24,
+          child: Row(
+            children: scoreKeeper,
+          ),
         )
       ],
     );

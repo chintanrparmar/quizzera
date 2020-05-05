@@ -1,5 +1,5 @@
 class ScoreData {
-  int score;
+  String scoreResultText;
 
-  ScoreData(this.score);
+  ScoreData(this.scoreResultText);
 }

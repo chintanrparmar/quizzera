@@ -36,6 +36,7 @@ flutter:
 
   assets:
     - images/avengers.jpg
+    - images/avengers_logo.png
 
   fonts:
     - family: Pacifico

@@ -23,6 +23,8 @@ class QuestionRepo {
   }
 
   bool isFinished() {
+    print('id $_questionId');
+    print('size ${_questionData.length-1}');
     if (_questionId >= _questionData.length - 1) {
       return true;
     } else {

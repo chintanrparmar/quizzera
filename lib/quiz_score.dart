@@ -10,17 +10,32 @@ class QuizScore extends StatelessWidget {
     final ScoreData args = ModalRoute.of(context).settings.arguments;
 
     return MaterialApp(
-      home: Scaffold(
-        body: Center(
-            child: Text(
-          args.score.toString(),
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-          ),
+      home: Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+          image: AssetImage('images/avengers_logo.png'),
+          fit: BoxFit.cover,
         )),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Center(
+              child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 100),
+              child: Text(
+                args.scoreResultText,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  letterSpacing: 2,
+                  fontSize: 34,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          )),
+        ),
       ),
     );
   }
