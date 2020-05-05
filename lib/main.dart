@@ -41,6 +41,24 @@ class _QuizPageState extends State<QuizPage> {
 
   void checkAns(bool userAns) {
     setState(() {
+      if (userAns == questionRepo.getAns()) {
+        scoreCount++;
+        scoreKeeper.add(
+          Icon(
+            Icons.check,
+            color: Colors.green,
+          ),
+        );
+        print(scoreCount.toString());
+      } else {
+        scoreKeeper.add(
+          Icon(
+            Icons.close,
+            color: Colors.red,
+          ),
+        );
+        print(scoreCount.toString());
+      }
       if (questionRepo.isFinished() == true) {
         print(scoreCount.toString());
 
@@ -52,27 +70,8 @@ class _QuizPageState extends State<QuizPage> {
 
         questionRepo.resetQuestion();
         scoreKeeper = [];
-      } else {
-        if (userAns == questionRepo.getAns()) {
-          scoreCount++;
-          scoreKeeper.add(
-            Icon(
-              Icons.check,
-              color: Colors.green,
-            ),
-          );
-          print(scoreCount.toString());
-        } else {
-          scoreKeeper.add(
-            Icon(
-              Icons.close,
-              color: Colors.red,
-            ),
-          );
-          print(scoreCount.toString());
-        }
+      } else
         questionRepo.nextQuestion();
-      }
     });
   }
 
